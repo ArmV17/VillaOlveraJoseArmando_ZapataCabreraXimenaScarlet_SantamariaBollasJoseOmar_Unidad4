@@ -1,0 +1,14 @@
+name = "task-manager-worker"
+main = "worker/index.js"
+compatibility_date = "2025-11-24"
+
+
+# Opcionalmente agrega account_id si lo prefieres (mejor manejar con wrangler login)
+# account_id = "YOUR_ACCOUNT_ID"
+
+
+[env.production]
+[[d1_databases]]
+binding = "DB"
+database_name = "task_manager_db"
+database_id = "YOUR_D1_DATABASE_ID" # reemplaza con id real

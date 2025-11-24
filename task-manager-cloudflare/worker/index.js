@@ -68,3 +68,4 @@ return json({ error: 'Not found' }, 404);
 return json({ error: err.message }, 500);
 }
 }
+}
