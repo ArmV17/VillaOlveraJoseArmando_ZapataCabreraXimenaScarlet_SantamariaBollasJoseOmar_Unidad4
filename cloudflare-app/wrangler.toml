@@ -5,4 +5,4 @@ compatibility_date = "2025-11-24"
 # Binding de D1
 [[d1_databases]]
 binding = "DB"
-database_name = "todos_db"
+database_name = "374b2995-9432-4845-acd7-20f0e6b61536"
