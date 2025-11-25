@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi Barrio Seguro</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+      :root{
+        --bg:#0b5c3b; --bg-soft:#f7faf8; --card:#ffffff; --ink:#111827; --muted:#6b7280;
+        --primary:#0ea5a5; --primary-ink:#063a3a; --ring:#c7f2ef; --border:#e5e7eb;
+        --shadow:0 8px 24px rgba(2, 32, 29, .07); --radius:16px;
+      }
+      [data-theme="dark"]{
+        --bg:#0c3b2c; --bg-soft:#0f1b19; --card:#0f1d1b; --ink:#e5f5f2; --muted:#9fb0ad;
+        --primary:#17b1b1; --primary-ink:#a9f1ea; --ring:#0a3c39; --border:#1f2f2c;
+        --shadow:0 8px 24px rgba(0,0,0,.45);
+      }
+      *{ box-sizing:border-box; } html,body{ height:100%; }
+      body{ margin:0; color:var(--ink); background:linear-gradient(180deg,#e9f6f3, #fff);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+      header{ position:sticky; top:0; z-index:10; background:var(--bg); color:#fff; padding:14px 18px; box-shadow:0 8px 18px rgba(0,0,0,.12); }
+      .wrap{ max-width:1120px; margin:0 auto; display:flex; gap:16px; align-items:center; }
+      .brand{ font-weight:800; letter-spacing:.2px; }
+      .spacer{ flex:1; }
+      .btn{ border:0; background:var(--primary); color:#fff; padding:10px 14px; border-radius:12px;
+        font-weight:600; cursor:pointer; box-shadow: var(--shadow); transition: transform .1s ease, filter .2s ease; }
+      .btn:hover{ filter:saturate(1.1) brightness(1.02); } .btn:active{ transform: translateY(1px) scale(.98); }
+      .btn.ghost{ background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); box-shadow:none }
+      .btn.secondary{ background:#111827; }
+      .container{ max-width:1120px; margin:22px auto; padding:0 16px; }
+      .grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; } @media (max-width: 960px){ .grid{ grid-template-columns: 1fr; } }
+      .card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow); }
+      .card h1,.card h2{ margin:6px 0 12px; } .subtle{ color:var(--muted); font-size:.92rem; }
+      .row{ display:flex; gap:12px; flex-wrap:wrap; } .field{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:220px; }
+      label{ font-size:.9rem; color:var(--muted); } input, select{ width:100%; padding:12px 12px; border:1px solid var(--border); border-radius:12px; outline:none; background:#fff; font-size:0.98rem; }
+      input:focus, select:focus{ border-color:var(--primary); box-shadow:0 0 0 6px var(--ring); } .actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+      #map{ height: 440px; border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+      .item{ border:1px dashed var(--border); border-radius:12px; padding:12px 12px; margin:10px 0; display:flex; flex-direction:column; gap:6px; background:#fcfefd; }
+      .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:#ecfeff; color:#155e75; font-weight:700; font-size:.78rem; }
+      .center{ display:grid; place-items:center; min-height:calc(100dvh - 68px); } .stack{ width:100%; max-width:430px; }
+      .tabs{ display:flex; background:#f0faf9; padding:6px; border-radius:12px; border:1px solid var(--border); margin-bottom:14px; }
+      .tab{ flex:1; text-align:center; padding:10px; border-radius:10px; font-weight:700; cursor:pointer; color:#0b3a32; } .tab.active{ background:#fff; box-shadow: var(--shadow); color:var(--primary-ink); }
+      .help{ color:#0f766e; font-size:.9rem; margin-top:6px; } .error{ color:#b91c1c; font-weight:600; } small.muted{ color:var(--muted); }
+      .modal-backdrop{ position:fixed; inset:0; background:rgba(2,25,22,.4); display:flex; align-items:center; justify-content:center; padding:16px; z-index:50; }
+      .modal{ width:100%; max-width:720px; background:#fff; border-radius:18px; border:1px solid var(--border); box-shadow:0 24px 70px rgba(2,32,29,.25); overflow:hidden; }
+      .modal header{ position:relative; background:#fff; color:var(--ink); padding:14px 18px; box-shadow:none; border-bottom:1px solid var(--border); }
+      .modal .body{ padding:16px; } .x{ background:#f1f5f9; border:1px solid var(--border); color:#0f172a; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
