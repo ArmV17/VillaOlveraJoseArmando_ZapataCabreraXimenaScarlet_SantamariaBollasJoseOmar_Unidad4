@@ -11,4 +11,4 @@ compatibility_date = "2025-11-24"
 [[d1_databases]]
 binding = "DB"
 database_name = "task_manager_db"
-database_id = "YOUR_D1_DATABASE_ID" # reemplaza con id real
+database_id = "3091f850-c3b5-4420-be04-86b27bcb7f5b"

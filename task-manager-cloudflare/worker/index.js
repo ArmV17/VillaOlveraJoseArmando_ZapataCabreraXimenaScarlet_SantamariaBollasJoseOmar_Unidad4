@@ -1,3 +1,4 @@
+
 // worker/index.js
 export default {
 async fetch(request, env) {
